@@ -10,13 +10,13 @@ import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        invisibleObj()
         findViewById<Button>(R.id.p1_button).setOnClickListener {
             parkingSlot1(it)
+            visibleObj()
             visibleTextP1(it)
             invisibleTextP2(it)
            invisibleTextP3(it)
@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.p2_button).setOnClickListener {
             parkingSlot2(it)
+            visibleObj()
             visibleTextP2(it)
             invisibleTextP1(it)
             invisibleTextP3(it)
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.p3_button).setOnClickListener {
             parkingSlot3(it)
+            visibleObj()
             visibleTextP3(it)
             invisibleTextP1(it)
             invisibleTextP2(it)
@@ -61,10 +63,6 @@ class MainActivity : AppCompatActivity() {
         val nameTextView = findViewById<TextView>(R.id.no_available1_view)
 
         nameTextView.text = nameEditText.text
-//        nameEditText.visibility = View.GONE
-//        view.visibility = View.GONE
-//
-//        nameTextView.visibility = View.VISIBLE
 
         // Hide the keyboard.
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -89,10 +87,6 @@ class MainActivity : AppCompatActivity() {
         val nameTextView = findViewById<TextView>(R.id.no_available2_view)
 
         nameTextView.text = nameEditText.text
-//        nameEditText.visibility = View.GONE
-//        view.visibility = View.GONE
-//
-//        nameTextView.visibility = View.VISIBLE
 
         // Hide the keyboard.
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -117,10 +111,6 @@ class MainActivity : AppCompatActivity() {
         val nameTextView = findViewById<TextView>(R.id.no_available3_view)
 
         nameTextView.text = nameEditText.text
-//        nameEditText.visibility = View.GONE
-//        view.visibility = View.GONE
-//
-//        nameTextView.visibility = View.VISIBLE
 
         // Hide the keyboard.
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -217,6 +207,35 @@ class MainActivity : AppCompatActivity() {
         licenseP3.visibility = View.VISIBLE
         brandP3.visibility = View.VISIBLE
     }
+
+    private fun invisibleObj(){
+        val nameTextview = findViewById<TextView>(R.id.name_txtview)
+        val licenseTextview = findViewById<TextView>(R.id.license_txtview)
+        val brandTextview = findViewById<TextView>(R.id.brand_txtview)
+        val deleteButton = findViewById<Button>(R.id.delete_button)
+        val updateButton = findViewById<Button>(R.id.update_button)
+
+        nameTextview.visibility = View.INVISIBLE
+        licenseTextview.visibility = View.INVISIBLE
+        brandTextview.visibility = View.INVISIBLE
+        deleteButton.visibility = View.INVISIBLE
+        updateButton.visibility = View.INVISIBLE
+    }
+
+    private fun visibleObj(){
+        val nameTextview = findViewById<TextView>(R.id.name_txtview)
+        val licenseTextview = findViewById<TextView>(R.id.license_txtview)
+        val brandTextview = findViewById<TextView>(R.id.brand_txtview)
+        val deleteButton = findViewById<Button>(R.id.delete_button)
+        val updateButton = findViewById<Button>(R.id.update_button)
+
+        nameTextview.visibility = View.VISIBLE
+        licenseTextview.visibility = View.VISIBLE
+        brandTextview.visibility = View.VISIBLE
+        deleteButton.visibility = View.VISIBLE
+        updateButton.visibility = View.VISIBLE
+    }
+
 }
 
 
