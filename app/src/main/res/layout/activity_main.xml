@@ -44,22 +44,67 @@
             android:layout_height="39dp"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/name_edit"
+            android:id="@+id/name_p1_edit"
             android:hint="@string/what_is_your_name" android:textColor="@android:color/black"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/Parking_view" android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:visibility="invisible"/>
+    <EditText
+            android:layout_width="240dp"
+            android:layout_height="39dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/name_p2_edit"
+            android:hint="@string/what_is_your_name" android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/Parking_view" android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent" android:visibility="invisible"/>
+    <EditText
+            android:layout_width="240dp"
+            android:layout_height="39dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/name_p3_edit"
+            android:hint="@string/what_is_your_name" android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/Parking_view" android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent" android:visibility="invisible"/>
     <EditText
             android:layout_width="240dp"
             android:layout_height="39dp"
             android:inputType="textShortMessage"
             android:ems="10"
-            android:id="@+id/license_edit"
+            android:id="@+id/license_p1_edit"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="24dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/name_edit"
-            android:hint="@string/what_is_your_license" android:textColor="@android:color/black"/>
+            app:layout_constraintTop_toBottomOf="@+id/name_p1_edit"
+            android:hint="@string/what_is_your_license" android:textColor="@android:color/black"
+            android:visibility="invisible"/>
+    <EditText
+            android:layout_width="240dp"
+            android:layout_height="39dp"
+            android:inputType="textShortMessage"
+            android:ems="10"
+            android:id="@+id/license_p2_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/name_p1_edit"
+            android:hint="@string/what_is_your_license" android:textColor="@android:color/black"
+            android:visibility="invisible"/>
+    <EditText
+            android:layout_width="240dp"
+            android:layout_height="39dp"
+            android:inputType="textShortMessage"
+            android:ems="10"
+            android:id="@+id/license_p3_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/name_p1_edit"
+            android:hint="@string/what_is_your_license" android:textColor="@android:color/black"
+            android:visibility="invisible"/>
     <EditText
             android:layout_width="240dp"
             android:layout_height="39dp"
@@ -67,12 +112,38 @@
             android:ems="10"
 
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/license_edit"
+            app:layout_constraintTop_toBottomOf="@+id/license_p1_edit"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="24dp"
             android:hint="@string/what_is_your_brand" android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
-            android:textColor="@android:color/black" android:id="@+id/brand_edit"/>
+            android:textColor="@android:color/black" android:id="@+id/brand_p1_edit" android:visibility="invisible"/>
+    <EditText
+            android:layout_width="240dp"
+            android:layout_height="39dp"
+            android:inputType="textShortMessage"
+            android:ems="10"
+
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/license_p1_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp"
+            android:hint="@string/what_is_your_brand" android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+            android:textColor="@android:color/black" android:id="@+id/brand_p2_edit" android:visibility="invisible"/>
+    <EditText
+            android:layout_width="240dp"
+            android:layout_height="39dp"
+            android:inputType="textShortMessage"
+            android:ems="10"
+
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/license_p1_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp"
+            android:hint="@string/what_is_your_brand" android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+            android:textColor="@android:color/black" android:id="@+id/brand_p3_edit" android:visibility="invisible"/>
     <Button
             android:text="Delete"
             android:layout_width="130dp"
@@ -132,7 +203,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/name_txtview" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="24dp"
-            app:layout_constraintEnd_toStartOf="@+id/name_edit" android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/name_p1_edit" android:layout_marginEnd="24dp"
             app:layout_constraintHorizontal_bias="0.0" android:textAlignment="center"
             android:textColor="@android:color/black" android:textSize="16sp" android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@+id/Parking_view"/>
@@ -143,7 +214,7 @@
             android:id="@+id/license_txtview" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="24dp" android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@+id/name_txtview"
-            app:layout_constraintEnd_toStartOf="@+id/license_edit" android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/license_p1_edit" android:layout_marginEnd="24dp"
             app:layout_constraintHorizontal_bias="0.0" android:textAlignment="center"
             android:textColor="@android:color/black" android:textSize="16sp"/>
     <TextView
@@ -152,7 +223,7 @@
             android:layout_height="wrap_content" android:id="@+id/brand_txtview"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
             android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/license_txtview"
-            app:layout_constraintEnd_toStartOf="@+id/brand_edit" android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/brand_p1_edit" android:layout_marginEnd="24dp"
             app:layout_constraintHorizontal_bias="0.0" android:textAlignment="center"
             android:textColor="@android:color/black" android:textSize="16sp"/>
     <TextView
