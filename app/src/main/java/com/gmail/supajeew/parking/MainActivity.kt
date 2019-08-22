@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         invisibleObj()
         findViewById<Button>(R.id.p1_button).setOnClickListener {
+            val nameEditText = findViewById<EditText>(R.id.name_p1_edit)
+            val nameTextView = findViewById<TextView>(R.id.no_available1_view)
+
+
             parkingSlot1(it)
             visibleObj()
             visibleTextP1(it)
@@ -57,12 +61,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun addNameP1(view: View) {
         val nameEditText = findViewById<EditText>(R.id.name_p1_edit)
         val nameTextView = findViewById<TextView>(R.id.no_available1_view)
 
-        nameTextView.text = nameEditText.text
+        if (nameEditText.text.toString() == ""){
+            nameTextView.text = "no available"
+        }else {
+            nameTextView.text = nameEditText.text
+        }
+
+
+
 
         // Hide the keyboard.
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -86,7 +96,11 @@ class MainActivity : AppCompatActivity() {
         val nameEditText = findViewById<EditText>(R.id.name_p2_edit)
         val nameTextView = findViewById<TextView>(R.id.no_available2_view)
 
-        nameTextView.text = nameEditText.text
+        if (nameEditText.text.toString() == ""){
+            nameTextView.text = "no available"
+        }else {
+            nameTextView.text = nameEditText.text
+        }
 
         // Hide the keyboard.
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -110,7 +124,11 @@ class MainActivity : AppCompatActivity() {
         val nameEditText = findViewById<EditText>(R.id.name_p3_edit)
         val nameTextView = findViewById<TextView>(R.id.no_available3_view)
 
-        nameTextView.text = nameEditText.text
+        if (nameEditText.text.toString() == ""){
+            nameTextView.text = "no available"
+        }else {
+            nameTextView.text = nameEditText.text
+        }
 
         // Hide the keyboard.
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
