@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">PARKING</string>
     <string name="title">PARKING SLOT</string>
+    <string name="title_name">Name : </string>
+    <string name="title_license">License : </string>
+    <string name="title_brand">Brand : </string>
     <string name="what_is_your_name">What is your Name?</string>
     <string name="what_is_your_license">What is your license?</string>
     <string name="what_is_your_brand">What is your brand?</string>
+    <string name="ChooseParking">ChooseParking</string>
+    <string name="no_available">no available</string>
+    <string name="update">update</string>
+    <string name="delete">delete</string>
+    <string name="park1">park 1</string>
+    <string name="park2">park 2</string>
+    <string name="park3">park 3</string>
 </resources>
