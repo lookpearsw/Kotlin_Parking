@@ -14,255 +14,213 @@ import com.gmail.supajeew.parking.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-//    private val myName: Carpark = Carpark("", "", "")
+    var noAvailable = "no available"
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         super.onCreate(savedInstanceState)
         invisibleObj()
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
         binding.apply {
+            p1Button.setOnClickListener {
+                parkingSlot1()
+                visibleObj()
+                visibleTextP1()
+                invisibleTextP2()
+                invisibleTextP3()
 
-        }
-        binding.p1Button.setOnClickListener {
-            val nameEditText = binding.nameP1Edit
-            val nameTextView = binding.noAvailable1View
+                updateButton.setOnClickListener {
+                    addNameP1(it)
+                }
+                deleteButton.setOnClickListener {
+                    delNameP1()
+                }
+            }
 
-            parkingSlot1(it)
-            visibleObj()
-            visibleTextP1(it)
-            invisibleTextP2(it)
-            invisibleTextP3(it)
+            p2Button.setOnClickListener {
+                parkingSlot2()
+                visibleObj()
+                visibleTextP2()
+                invisibleTextP1()
+                invisibleTextP3()
+                updateButton.setOnClickListener {
+                    addNameP2(it)
+                }
+                deleteButton.setOnClickListener {
+                    delNameP2()
+                }
+            }
 
-            binding.updateButton.setOnClickListener {
-                addNameP1(it)
-            }
-            binding.deleteButton.setOnClickListener {
-                delNameP1(it)
-            }
-        }
-
-        binding.p2Button.setOnClickListener {
-            parkingSlot2(it)
-            visibleObj()
-            visibleTextP2(it)
-            invisibleTextP1(it)
-            invisibleTextP3(it)
-            binding.updateButton.setOnClickListener {
-                addNameP2(it)
-            }
-            binding.deleteButton.setOnClickListener {
-                delNameP2(it)
-            }
-        }
-
-        binding.p3Button.setOnClickListener {
-            parkingSlot3(it)
-            visibleObj()
-            visibleTextP3(it)
-            invisibleTextP1(it)
-            invisibleTextP2(it)
-            binding.updateButton.setOnClickListener {
-                addNameP3(it)
-            }
-            binding.deleteButton.setOnClickListener {
-                delNameP3(it)
+            p3Button.setOnClickListener {
+                parkingSlot3()
+                visibleObj()
+                visibleTextP3()
+                invisibleTextP1()
+                invisibleTextP2()
+                updateButton.setOnClickListener {
+                    addNameP3(it)
+                }
+                deleteButton.setOnClickListener {
+                    delNameP3()
+                }
             }
         }
     }
-
 
     private fun addNameP1(view: View) {
-        val nameEditText = binding.nameP1Edit
-        val nameTextView = binding.noAvailable1View
-
-        if (nameEditText.text.toString() == "") {
-            nameTextView.text = "no available"
-        } else {
-            nameTextView.text = nameEditText.text
+        binding.apply {
+            if (nameP1Edit.text.toString() == "") {
+                noAvailable1View.text = noAvailable
+            } else {
+                noAvailable1View.text = nameP1Edit.text
+            }
+            // Hide the keyboard.
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
-
-
-        // Hide the keyboard.
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    private fun delNameP1(view: View) {
-        val nameEditText = binding.nameP1Edit
-        val licenseEditText = binding.licenseP1Edit
-        val brandEditText = binding.brandP1Edit
-        val nameTextView = binding.noAvailable1View
-
-        nameTextView.text = "no available"
-        nameEditText.setText("");
-        licenseEditText.setText("");
-        brandEditText.setText("");
+    private fun delNameP1() {
+        binding.apply {
+            noAvailable1View.text = noAvailable
+            nameP1Edit.setText("")
+            licenseP1Edit.setText("")
+            brandP1Edit.setText("")
+        }
     }
 
 
     private fun addNameP2(view: View) {
-        val nameEditText = binding.nameP2Edit
-        val nameTextView = binding.noAvailable2View
-
-        if (nameEditText.text.toString() == "") {
-            nameTextView.text = "no available"
-        } else {
-            nameTextView.text = nameEditText.text
+        binding.apply {
+            if (nameP2Edit.text.toString() == "") {
+                noAvailable2View.text = noAvailable
+            } else {
+                noAvailable2View.text = nameP2Edit.text
+            }
+            // Hide the keyboard.
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
-
-        // Hide the keyboard.
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    private fun delNameP2(view: View) {
-        val nameEditText = binding.nameP2Edit
-        val licenseEditText = binding.licenseP2Edit
-        val brandEditText = binding.brandP2Edit
-        val nameTextView = binding.noAvailable1View
-
-        nameTextView.text = "no available"
-        nameEditText.setText("");
-        licenseEditText.setText("");
-        brandEditText.setText("");
-
+    private fun delNameP2() {
+        binding.apply {
+            noAvailable2View.text = noAvailable
+            nameP2Edit.setText("")
+            licenseP2Edit.setText("")
+            brandP2Edit.setText("")
+        }
     }
 
 
     private fun addNameP3(view: View) {
-        val nameEditText = binding.nameP3Edit
-        val nameTextView = binding.noAvailable3View
-
-        if (nameEditText.text.toString() == "") {
-            nameTextView.text = "no available"
-        } else {
-            nameTextView.text = nameEditText.text
+        binding.apply {
+            if (nameP3Edit.text.toString() == "") {
+                noAvailable3View.text = noAvailable
+            } else {
+                noAvailable3View.text = nameP3Edit.text
+            }
+            // Hide the keyboard.
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
-
-        // Hide the keyboard.
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    private fun delNameP3(view: View) {
-        val nameEditText = binding.nameP3Edit
-        val licenseEditText = binding.licenseP3Edit
-        val brandEditText = binding.brandP3Edit
-        val nameTextView = binding.noAvailable1View
-
-        nameTextView.text = "no available"
-        nameEditText.setText("");
-        licenseEditText.setText("");
-        brandEditText.setText("");
+    private fun delNameP3() {
+        binding.apply {
+            noAvailable3View.text = noAvailable
+            nameP3Edit.setText("")
+            licenseP3Edit.setText("")
+            brandP3Edit.setText("")
+        }
     }
 
-    private fun parkingSlot1(view: View) {
-        val parkingView = binding.ParkingView
-        val p1Button = binding.p1Button
-        parkingView.text = p1Button.text
+    private fun parkingSlot1() {
+        binding.apply {
+            ParkingView.text = p1Button.text
+        }
     }
 
-    private fun parkingSlot2(view: View) {
-        val parkingView = binding.ParkingView
-        val p2Button = binding.p2Button
-        parkingView.text = p2Button.text
+    private fun parkingSlot2() {
+        binding.apply {
+            ParkingView.text = p2Button.text
+        }
     }
 
-    private fun parkingSlot3(view: View) {
-        val parkingView = binding.ParkingView
-        val p3Button = binding.p3Button
-        parkingView.text = p3Button.text
+    private fun parkingSlot3() {
+        binding.apply {
+            ParkingView.text = p3Button.text
+        }
     }
 
-    private fun invisibleTextP1(view: View) {
-        val nameP1 = binding.nameP1Edit
-        val licenseP1 = binding.licenseP1Edit
-        val brandP1 = binding.brandP1Edit
-
-        nameP1.visibility = View.INVISIBLE
-        licenseP1.visibility = View.INVISIBLE
-        brandP1.visibility = View.INVISIBLE
+    private fun invisibleTextP1() {
+        binding.apply {
+            nameP1Edit.visibility = View.INVISIBLE
+            licenseP1Edit.visibility = View.INVISIBLE
+            brandP1Edit.visibility = View.INVISIBLE
+        }
     }
 
-    private fun invisibleTextP2(view: View) {
-        val nameP2 = binding.nameP2Edit
-        val licenseP2 = binding.licenseP2Edit
-        val brandP2 = binding.brandP2Edit
-
-        nameP2.visibility = View.INVISIBLE
-        licenseP2.visibility = View.INVISIBLE
-        brandP2.visibility = View.INVISIBLE
+    private fun invisibleTextP2() {
+        binding.apply {
+            nameP2Edit.visibility = View.INVISIBLE
+            licenseP2Edit.visibility = View.INVISIBLE
+            brandP2Edit.visibility = View.INVISIBLE
+        }
     }
 
-    private fun invisibleTextP3(view: View) {
-        val nameP3 = binding.nameP3Edit
-        val licenseP3 = binding.licenseP3Edit
-        val brandP3 = binding.brandP3Edit
-
-        nameP3.visibility = View.INVISIBLE
-        licenseP3.visibility = View.INVISIBLE
-        brandP3.visibility = View.INVISIBLE
+    private fun invisibleTextP3() {
+        binding.apply {
+            nameP3Edit.visibility = View.INVISIBLE
+            licenseP3Edit.visibility = View.INVISIBLE
+            brandP3Edit.visibility = View.INVISIBLE
+        }
     }
 
-    private fun visibleTextP1(view: View) {
-        val nameP1 = binding.nameP1Edit
-        val licenseP1 = binding.licenseP1Edit
-        val brandP1 = binding.brandP1Edit
-
-        nameP1.visibility = View.VISIBLE
-        licenseP1.visibility = View.VISIBLE
-        brandP1.visibility = View.VISIBLE
+    private fun visibleTextP1() {
+        binding.apply {
+            nameP1Edit.visibility = View.VISIBLE
+            licenseP1Edit.visibility = View.VISIBLE
+            brandP1Edit.visibility = View.VISIBLE
+        }
     }
 
-    private fun visibleTextP2(view: View) {
-        val nameP2 = binding.nameP2Edit
-        val licenseP2 = binding.licenseP2Edit
-        val brandP2 = binding.brandP2Edit
-
-        nameP2.visibility = View.VISIBLE
-        licenseP2.visibility = View.VISIBLE
-        brandP2.visibility = View.VISIBLE
+    private fun visibleTextP2() {
+        binding.apply {
+            nameP2Edit.visibility = View.VISIBLE
+            licenseP2Edit.visibility = View.VISIBLE
+            brandP2Edit.visibility = View.VISIBLE
+        }
     }
 
-    private fun visibleTextP3(view: View) {
-        val nameP3 = binding.nameP3Edit
-        val licenseP3 = binding.licenseP3Edit
-        val brandP3 = binding.brandP3Edit
-
-        nameP3.visibility = View.VISIBLE
-        licenseP3.visibility = View.VISIBLE
-        brandP3.visibility = View.VISIBLE
+    private fun visibleTextP3() {
+        binding.apply {
+            nameP3Edit.visibility = View.VISIBLE
+            licenseP3Edit.visibility = View.VISIBLE
+            brandP3Edit.visibility = View.VISIBLE
+        }
     }
 
     private fun invisibleObj() {
-        val nameTextview = findViewById<TextView>(R.id.name_txtview)
-        val licenseTextview = findViewById<TextView>(R.id.license_txtview)
-        val brandTextview = findViewById<TextView>(R.id.brand_txtview)
-        val deleteButton = findViewById<Button>(R.id.delete_button)
-        val updateButton = findViewById<Button>(R.id.update_button)
-
-        nameTextview.visibility = View.INVISIBLE
-        licenseTextview.visibility = View.INVISIBLE
-        brandTextview.visibility = View.INVISIBLE
-        deleteButton.visibility = View.INVISIBLE
-        updateButton.visibility = View.INVISIBLE
+        binding.apply {
+            nameTxtview.visibility = View.INVISIBLE
+            licenseTxtview.visibility = View.INVISIBLE
+            brandTxtview.visibility = View.INVISIBLE
+            deleteButton.visibility = View.INVISIBLE
+            updateButton.visibility = View.INVISIBLE
+        }
     }
 
     private fun visibleObj() {
-        val nameTextview = binding.nameTxtview
-        val licenseTextview = binding.licenseTxtview
-        val brandTextview = binding.brandTxtview
-        val deleteButton = binding.deleteButton
-        val updateButton = binding.updateButton
-
-        nameTextview.visibility = View.VISIBLE
-        licenseTextview.visibility = View.VISIBLE
-        brandTextview.visibility = View.VISIBLE
-        deleteButton.visibility = View.VISIBLE
-        updateButton.visibility = View.VISIBLE
+        binding.apply {
+            nameTxtview.visibility = View.VISIBLE
+            licenseTxtview.visibility = View.VISIBLE
+            brandTxtview.visibility = View.VISIBLE
+            deleteButton.visibility = View.VISIBLE
+            updateButton.visibility = View.VISIBLE
+        }
     }
 
 }
