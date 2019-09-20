@@ -33,9 +33,13 @@ class MainActivity : AppCompatActivity() {
 
                 updateButton.setOnClickListener {
                     addNameP1(it)
+                    invisibleObj()
+                    changeParkingTitle()
                 }
                 deleteButton.setOnClickListener {
                     delNameP1()
+                    invisibleObj()
+                    changeParkingTitle()
                 }
             }
 
@@ -47,9 +51,13 @@ class MainActivity : AppCompatActivity() {
                 invisibleTextP3()
                 updateButton.setOnClickListener {
                     addNameP2(it)
+                    invisibleObj()
+                    ParkingView.text = "ChooseParking"
                 }
                 deleteButton.setOnClickListener {
                     delNameP2()
+                    invisibleObj()
+                    changeParkingTitle()
                 }
             }
 
@@ -61,11 +69,21 @@ class MainActivity : AppCompatActivity() {
                 invisibleTextP2()
                 updateButton.setOnClickListener {
                     addNameP3(it)
+                    invisibleObj()
+                    changeParkingTitle()
                 }
                 deleteButton.setOnClickListener {
                     delNameP3()
+                    invisibleObj()
+                    changeParkingTitle()
                 }
             }
+        }
+    }
+
+    fun changeParkingTitle(){
+        binding.apply {
+            ParkingView.text = "ChooseParking"
         }
     }
 
@@ -205,6 +223,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun invisibleObj() {
         binding.apply {
+            nameP3Edit.visibility = View.INVISIBLE
+            licenseP3Edit.visibility = View.INVISIBLE
+            brandP3Edit.visibility = View.INVISIBLE
+            nameP1Edit.visibility = View.INVISIBLE
+            licenseP1Edit.visibility = View.INVISIBLE
+            brandP1Edit.visibility = View.INVISIBLE
+            nameP2Edit.visibility = View.INVISIBLE
+            licenseP2Edit.visibility = View.INVISIBLE
+            brandP2Edit.visibility = View.INVISIBLE
             nameTxtview.visibility = View.INVISIBLE
             licenseTxtview.visibility = View.INVISIBLE
             brandTxtview.visibility = View.INVISIBLE
